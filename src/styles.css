@@ -248,3 +248,27 @@ html, body{
     height: 20em;
     border-radius: 5%;
 }
+
+.small-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    p {
+        padding: 0;
+        margin: 0;
+
+        /* Text Style */
+        font-family: 'Helvetica Light';
+        font-size: 13px;
+        color: #0B1B36;
+
+        a {
+            color: rgb(151, 108, 250); /* Link text color */
+            text-decoration: underline; /* Underline the link */
+            position: relative; /* For positioning the arrow */
+            padding-right: 15px; /* Creates space for the arrow */
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+    }
+}
