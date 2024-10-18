@@ -177,6 +177,7 @@ html, body{
     /* Text Style */
     font-family: 'Helvetica';
     font-size: 1.2em;
+    padding-bottom: 1rem;
     color: #0B1B36;
 
     a {
