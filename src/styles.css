@@ -299,6 +299,7 @@ html, body{
     width: 20em;
     height: 20em;
     border-radius: 5%;
+    
 }
 
 @media (max-width: 758px) {
@@ -310,6 +311,8 @@ html, body{
         left: 0;
         justify-self: center;
         grid-area: img;
+        padding-bottom: 10%;
+        box-sizing: border-box;
     }
 }
 
