@@ -120,7 +120,7 @@ html, body{
     padding-right: 1em;
     box-sizing: border-box;
     z-index: 4;
-    background-color: #ffc1cd;
+    background-color: #edbec7;
     mix-blend-mode: difference;
 
     /* Grid management */
@@ -143,7 +143,7 @@ html, body{
         /* Text Style */
         font-family: 'Helvetica Bold';
         font-size: 1.5rem;
-        color: #edbec7;
+        color: #0B1B36;
     }
 
     ul {
@@ -303,10 +303,11 @@ html, body{
 
 @media (max-width: 758px) {
     .me {
-        position: relative;
         height: 100%;
         width: auto;
         position: relative;
+        top: 0;
+        left: 0;
         justify-self: center;
         grid-area: img;
     }
