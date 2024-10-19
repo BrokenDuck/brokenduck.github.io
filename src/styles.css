@@ -303,6 +303,7 @@ html, body{
 
 @media (max-width: 758px) {
     .me {
+        position: relative;
         height: 100%;
         width: auto;
         position: relative;
