@@ -142,7 +142,7 @@ html, body{
         /* Text Style */
         font-family: 'Helvetica Bold';
         font-size: 1.5rem;
-        color: #0B1B36;
+        color: #edbec7;
     }
 
     ul {
@@ -162,7 +162,7 @@ html, body{
         grid-template-areas: 
         "item1 item2"
         "item3 item4"
-        ". ."
+        "img img"
         "item5 item6"
         "item7 item8";
         column-gap: 1rem;
@@ -302,11 +302,11 @@ html, body{
 
 @media (max-width: 758px) {
     .me {
-        top: 48.5%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 20%;
+        height: 100%;
         width: auto;
+        position: relative;
+        justify-self: center;
+        grid-area: img;
     }
 }
 
