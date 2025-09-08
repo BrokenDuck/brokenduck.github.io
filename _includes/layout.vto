@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>
+        <a id="id" href="/">JONAT.ME</a>
+      </h1>
+    </header>
+    <main class="article">
+      <article>
+        <section id="content" class="article">
+          <header class="entry-header">
+            <h1 class="entry-title">
+              {{ title }}
+            </h1>
+            <p class="summary">
+              {{ summary }}
+            </p>
+          </header>
+          <div class="entry-content">
+            {{ content }}
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
