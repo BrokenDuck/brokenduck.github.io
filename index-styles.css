@@ -1,71 +1,10 @@
-@font-face {
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Helvetica'), url('./fonts/Helvetica.ttf') format('ttf');
-}
-
-
-@font-face {
-    font-family: 'Helvetica Oblique';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Helvetica Oblique'), url('./fonts/Helvetica-Oblique.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Helvetica Compressed';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Helvetica Compressed'), url('./fonts/helvetica-compressed-5871d14b6903a.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Helvetica Rounded Bold';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Helvetica Rounded Bold'), url('./fonts/helvetica-rounded-bold-5871d05ead8de.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Helvetica Bold';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Helvetica Bold'), url('./fonts/Helvetica-Bold.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Helvetica Bold Oblique';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Helvetica Bold Oblique'), url('./fonts/Helvetica-BoldOblique.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Helvetica Light';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Helvetica Light'), url('./fonts/helvetica-light-587ebe5a59211.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Akzidenz Grotesk';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Akzidenz Grotesk'), url('./fonts/Akzidenz-grotesk-black.woff') format('woff');
-}
-
-html, body{
+html,
+body {
     margin: 0;
     padding: 0;
 }
 
-.hero {
+header {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -82,7 +21,6 @@ html, body{
         font: bold 5em "hanken";
         color: whitesmoke;
         word-spacing: 0.1em;
-        z-index: 3;
     }
 
     /* Background Image */
@@ -90,7 +28,6 @@ html, body{
         width: auto;
         height: 100%;
         opacity: 80;
-        z-index: 1;
         object-fit: contain;
     }
 }
@@ -103,22 +40,19 @@ html, body{
     }
 }
 
-.main {
+#main {
     position: relative;
     width: 100vw;
     height: 100vh;
-    z-index: 0;
+    overflow: scroll;
 }
 
-.grid {
+main {
     position: relative;
     width: 100%;
     height: 100%;
-    padding-top: 2em;
-    padding-left: 1em;  
-    padding-right: 1em;
+    padding: 0.5em;
     box-sizing: border-box;
-    z-index: 4;
     background-color: #edbec7;
     mix-blend-mode: difference;
 
@@ -126,15 +60,46 @@ html, body{
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1.5fr 1fr;
     grid-template-rows: repeat(5, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
         "item1 item2 item2 item2 . ."
         "item3 item4 item4 item4 . ."
         ". . . . . ."
         ". . item5 item6 item6 item6"
         ". . item7 item8 item8 item8";
     justify-items: stretch;
-    z-index: 1;
-    
+
+    :nth-child(2):not(#circles) {
+        grid-area: item1;
+    }
+
+    :nth-child(3):not(#circles) {
+        grid-area: item2;
+    }
+
+    :nth-child(4):not(#circles) {
+        grid-area: item3;
+    }
+
+    :nth-child(5):not(#circles) {
+        grid-area: item4;
+    }
+
+    :nth-child(6):not(#circles) {
+        grid-area: item5;
+    }
+
+    :nth-child(7):not(#circles) {
+        grid-area: item6;
+    }
+
+    :nth-child(8):not(#circles) {
+        grid-area: item7;
+    }
+
+    :nth-child(9):not(#circles) {
+        grid-area: item8;
+    }
+
     h3 {
         padding: 0;
         margin: 0;
@@ -149,146 +114,137 @@ html, body{
         padding: 0;
         margin: 0;
     }
-}
 
-@media (max-width: 768px) {
-    .grid {
-        padding-top: 0.5rem;
-        padding-left: 0.25rem;
-        padding-right: 0.25rem;
+
+    li {
+        /* Text Style */
+        font-family: 'Helvetica';
+        font-size: 1.2em;
+        padding-bottom: 1rem;
+        color: #0B1B36;
+
+        a {
+            color: rgb(151, 108, 250);
+            /* Link text color */
+            text-decoration: underline;
+            /* Underline the link */
+            position: relative;
+            /* For positioning the arrow */
+            padding-right: 15px;
+            /* Creates space for the arrow */
+            transition: color 0.3s ease;
+            /* Smooth color transition */
+        }
+
+        a::after {
+            content: '↗';
+            /* Adds the arrow */
+            font-size: 1.6rem;
+            font-weight: normal;
+            position: absolute;
+            right: -7px;
+            transform: translateY(-11px);
+            transition: transform 0.3s ease;
+            /* Smooth arrow movement */
+        }
+
+        a:hover {
+            color: rgb(129, 77, 250);
+            /* Slightly darker shade of the text color on hover */
+        }
+
+        a:hover::after {
+            transform: translateY(-13px);
+            /* Moves the arrow slightly to the right on hover */
+        }
+    }
+
+    @media (max-width: 768px) {
         grid-template-columns: 1fr 3fr;
         grid-template-rows: repeat(4, 1fr);
-        grid-template-areas: 
-        "item1 item2"
-        "item3 item4"
-        "img img"
-        "item5 item6"
-        "item7 item8";
+        grid-template-areas:
+            "item1 item2"
+            "item3 item4"
+            "img img"
+            "item5 item6"
+            "item7 item8";
         column-gap: 1rem;
 
         h3 {
             font-size: 1rem;
         }
-    }
-}
 
-.list-el {
-    /* Text Style */
-    font-family: 'Helvetica';
-    font-size: 1.2em;
-    padding-bottom: 1rem;
-    color: #0B1B36;
+        li {
+            font-size: 0.8em;
+            padding-bottom: 2rem;
 
-    a {
-        color: rgb(151, 108, 250); /* Link text color */
-        text-decoration: underline; /* Underline the link */
-        position: relative; /* For positioning the arrow */
-        padding-right: 15px; /* Creates space for the arrow */
-        transition: color 0.3s ease; /* Smooth color transition */
-    }
-    
-    a::after {
-        content: '↗'; /* Adds the arrow */
-        font-size: 1.6rem;
-        font-weight: normal;
-        position: absolute;
-        right: -7px;
-        transform: translateY(-11px);
-        transition: transform 0.3s ease; /* Smooth arrow movement */
-    }
-    
-    a:hover {
-        color: rgb(129, 77, 250); /* Slightly darker shade of the text color on hover */
-    }
-    
-    a:hover::after {
-        transform: translateY(-13px); /* Moves the arrow slightly to the right on hover */
-    }
-}
-
-@media (max-width: 768px) {
-    .list-el {
-        font-size: 0.8em;
-        padding-bottom: 2rem;
-
-        a::after {
-            font-size: 1.3rem;
-            right: -2px;
-            top: 2px;
+            a::after {
+                font-size: 1.3rem;
+                right: -2px;
+                top: 2px;
+            }
         }
     }
 }
 
-.item1 { grid-area: item1; }
-.item2 { grid-area: item2; }
-.item3 { grid-area: item3; }
-.item4 { grid-area: item4; }
-.item5 { grid-area: item5; }
-.item6 { grid-area: item6; }
-.item7 { grid-area: item7; }
-.item8 { grid-area: item8; }
 
-.circles {
+
+
+#circles {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index:-1;
 
     div {
-        position: absolute;  
+        position: absolute;
         border-radius: 50%;
-        z-index: -2;
     }
-}
 
-.circle1 {
-    bottom: -15em;
-    left: -15em;
-    width: 30em;
-    height: 30em;
-    background-color: #E6FCB4;
-    mix-blend-mode: difference;
-    z-index: inherit;
-}
+    :nth-child(1) {
+        bottom: -15em;
+        left: -15em;
+        width: 30em;
+        height: 30em;
+        background-color: #E6FCB4;
+        mix-blend-mode: difference;
+    }
 
-.circle2 {
-    left: 10em;
-    bottom: -3em;
-    width: 16em;
-    height: 16em;
-    background-color: #FF6F61;
-    mix-blend-mode: difference;
-    z-index: inherit;
-}
+    :nth-child(2) {
+        left: 10em;
+        bottom: -3em;
+        width: 16em;
+        height: 16em;
+        background-color: #FF6F61;
+        mix-blend-mode: difference;
+    }
 
-.circle3 {
-    left: 15em;
-    bottom: 8em;
-    width: 14em;
-    height: 14em;
-    background-color: #CAB4FC;
-    mix-blend-mode: darken;
-    z-index: inherit;
-}
+    :nth-child(3) {
+        left: 15em;
+        bottom: 8em;
+        width: 14em;
+        height: 14em;
+        background-color: #CAB4FC;
+        mix-blend-mode: darken;
+    }
 
-.circle4 {
-    left: 24em;
-    bottom: 18em;
-    width: 10em;
-    height: 10em;
-    background-color: #a2afe5;
-    mix-blend-mode: difference;
-    z-index: inherit;
-}
+    :nth-child(4) {
+        left: 24em;
+        bottom: 18em;
+        width: 10em;
+        height: 10em;
+        background-color: #a2afe5;
+        mix-blend-mode: difference;
+    }
 
-@media (max-width: 768px) {
-    .circles {
+    @media (max-width: 768px) {
         display: none;
     }
 }
+
+
 
 .me {
     position: absolute;
@@ -297,7 +253,7 @@ html, body{
     width: 20em;
     height: 20em;
     border-radius: 5%;
-    
+
 }
 
 @media (max-width: 758px) {
@@ -314,32 +270,35 @@ html, body{
     }
 }
 
-.small-text {
+aside {
     position: absolute;
     bottom: 0;
     right: 0;
-    z-index: 1;
 
     p {
         padding: 0;
         margin: 0;
+
 
         /* Text Style */
         font: 0.8rem "arimo";
         color: #0B1B36;
 
         a {
-            color: rgb(151, 108, 250); /* Link text color */
-            text-decoration: underline; /* Underline the link */
-            position: relative; /* For positioning the arrow */
-            padding-right: 15px; /* Creates space for the arrow */
-            transition: color 0.3s ease; /* Smooth color transition */
+            color: rgb(151, 108, 250);
+            /* Link text color */
+            text-decoration: underline;
+            /* Underline the link */
+            position: relative;
+            /* For positioning the arrow */
+            padding-right: 15px;
+            /* Creates space for the arrow */
+            transition: color 0.3s ease;
+            /* Smooth color transition */
         }
     }
-}
 
-@media (max-width: 768px) {
-    .small-text {
+    @media (max-width: 768px) {
         p {
             font-size: 0.6rem;
         }
@@ -347,5 +306,7 @@ html, body{
 }
 
 .logo {
-    display: flex; flex-direction: row; align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

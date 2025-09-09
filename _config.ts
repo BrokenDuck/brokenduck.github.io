@@ -1,6 +1,8 @@
 import lume from "lume/mod.ts";
 import lightningCSS from "lume/plugins/lightningcss.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
+import minifyHTML from "lume/plugins/minify_html.ts";
+import purgecss from "lume/plugins/purgecss.ts";
 
 const site = lume();
 
@@ -14,9 +16,14 @@ site.use(
     },
   }),
 );
+
 site.use(lightningCSS());
+site.use(minifyHTML());
+// site.use(purgecss());
+
 site.add("/styles.css");
 site.add("/index-styles.css");
 site.add("index.html");
+site.add("static", "/");
 
 export default site;
