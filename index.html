@@ -8,21 +8,26 @@
       name="description"
       content="The personnal website of Jonathan Maillefaud."
     >
-    <link rel="stylesheet" href="/index-styles.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <link rel="stylesheet" href="/styles/index.css">
   </head>
 
   <body>
     <div id="main">
       <header>
         <h1>Jonathan Maillefaud</h1>
-        <img
-          src="./images/hero.jpg"
-          alt="A picture of lake Zürich in the morning"
-        >
+        <picture id="pic">
+          <source
+            srcset="/images/hero-portrait.jpg"
+            media="(max-aspect-ratio: 3/4)"
+            transform-images="avif webp jpg"
+          />
+          <img
+            src="/images/hero.jpg"
+            alt="A picture of lake Zürich in the morning"
+            transform-images="avif webp jpg"
+          />
+        </picture>
       </header>
       <main>
         <!-- Purely decorative content, composed of empty divs which are ignored by screen readers -->
@@ -34,20 +39,20 @@
         </div>
         <h3 id="item1">nowadays</h3>
         <ul id="item2">
-          <li class="list-el">
+          <li>
             building finance agents @ <a href="https://www.evooq.ch/">Evooq</a>
           </li>
-          <li class="list-el">
+          <li>
             if it's really early in the morning, rowing @ Lake Zürich
           </li>
         </ul>
         <h3 id="item3">previously</h3>
         <ul id="item4">
-          <li class="list-el">
+          <li>
             exploring Hong-Kong while studying @ <a href="https://hkust.edu.hk/"
             >HKUST</a>
           </li>
-          <li class="list-el">
+          <li>
             learning about (computer) science in my masters @ <a
               href="https://inf.ethz.ch/"
             >ETH Zürich</a>
@@ -55,12 +60,12 @@
         </ul>
         <h3 id="item5">projects</h3>
         <ul id="item6">
-          <li class="list-el">
+          <li>
             <strong><a href="https://elect-o-mate.eu/"
               >ElectOMate</a></strong>&nbsp;: multilingual chat agent system
             giving voters advice for elections
           </li>
-          <li class="list-el">
+          <li>
             <strong><a
                 href="https://github.com/BrokenDuck/OpenGrid"
               >FullStackRAG</a></strong>&nbsp;: template for a RAG app using
@@ -69,7 +74,7 @@
         </ul>
         <h3 id="item7">contact</h3>
         <ul id="item8">
-          <li class="list-el">
+          <li>
             My <a href="./JonathanMaillefaudCV.pdf">CV</a>
           </li>
           <li class="list-el logo">
@@ -122,7 +127,7 @@
                 </svg>&nbsp;&nbsp; -->
             <a href="https://www.linkedin.com/in/jmaillefaud/">LinkedIn</a>
           </li>
-          <li class="list-el">jonathan.maillefaud📧gmail.com</li>
+          <li>jonathan.maillefaud📧gmail.com</li>
         </ul>
         <!-- <img src="./images/me.jpg" class="me" alt="Me :) (A very good looking man)"> -->
       </main>

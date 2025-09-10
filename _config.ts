@@ -3,26 +3,143 @@ import lightningCSS from "lume/plugins/lightningcss.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
 import minifyHTML from "lume/plugins/minify_html.ts";
 import purgecss from "lume/plugins/purgecss.ts";
+import picture from "lume/plugins/picture.ts";
+import transformImages from "lume/plugins/transform_images.ts";
+import favicon from "lume/plugins/favicon.ts";
+import robots from "lume/plugins/robots.ts";
+import sitemap from "lume/plugins/sitemap.ts";
 
 const site = lume();
 
+// Styling
+
+site.add("styles");
 site.use(
   googleFonts({
     fonts: {
-      arimo:
-        "https://fonts.google.com/share?selection.family=Arimo:ital,wght@0,400..700;1,400..700",
       hanken:
         "https://fonts.google.com/share?selection.family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900",
     },
+    cssFile: "styles/index.css",
   }),
 );
 
-site.use(lightningCSS());
-site.use(minifyHTML());
-// site.use(purgecss());
+// File optimization
 
-site.add("/styles.css");
-site.add("/index-styles.css");
+site.use(minifyHTML());
+site.use(lightningCSS());
+site.use(purgecss());
+
+// Image Stuff
+
+site.use(picture());
+site.use(transformImages());
+
+// Add web specific files
+
+site.use(favicon());
+site.use(robots({
+  disallow: [
+    "AddSearchBot",
+    "AI2Bot",
+    "Ai2Bot-Dolma",
+    "aiHitBot",
+    "Amazonbot",
+    "Andibot",
+    "anthropic-ai",
+    "Applebot",
+    "Applebot-Extended",
+    "Awario",
+    "bedrockbot",
+    "bigsur.ai",
+    "Brightbot 1.0",
+    "Bytespider",
+    "CCBot",
+    "ChatGPT Agent",
+    "ChatGPT-User",
+    "Claude-SearchBot",
+    "Claude-User",
+    "Claude-Web",
+    "ClaudeBot",
+    "CloudVertexBot",
+    "cohere-ai",
+    "cohere-training-data-crawler",
+    "Cotoyogi",
+    "Crawlspace",
+    "Datenbank Crawler",
+    "Devin",
+    "Diffbot",
+    "DuckAssistBot",
+    "Echobot Bot",
+    "EchoboxBot",
+    "FacebookBot",
+    "facebookexternalhit",
+    "Factset_spyderbot",
+    "FirecrawlAgent",
+    "FriendlyCrawler",
+    "Gemini-Deep-Research",
+    "Google-CloudVertexBot",
+    "Google-Extended",
+    "Google-Firebase",
+    "GoogleAgent-Mariner",
+    "GoogleOther",
+    "GoogleOther-Image",
+    "GoogleOther-Video",
+    "GPTBot",
+    "iaskspider/2.0",
+    "ICC-Crawler",
+    "ImagesiftBot",
+    "img2dataset",
+    "ISSCyberRiskCrawler",
+    "Kangaroo Bot",
+    "LinerBot",
+    "meta-externalagent",
+    "Meta-ExternalAgent",
+    "meta-externalfetcher",
+    "meta-webindexer",
+    "Meta-ExternalFetcher",
+    "MistralAI-User",
+    "MistralAI-User/1.0",
+    "MyCentralAIScraperBot",
+    "netEstate Imprint Crawler",
+    "NovaAct",
+    "OAI-SearchBot",
+    "omgili",
+    "omgilibot",
+    "OpenAI",
+    "Operator",
+    "PanguBot",
+    "Panscient",
+    "panscient.com",
+    "Perplexity-User",
+    "PerplexityBot",
+    "PetalBot",
+    "PhindBot",
+    "Poseidon Research Crawler",
+    "QualifiedBot",
+    "QuillBot",
+    "quillbot.com",
+    "SBIntuitionsBot",
+    "Scrapy",
+    "SemrushBot-OCOB",
+    "SemrushBot-SWA",
+    "ShapBot",
+    "Sidetrade indexer bot",
+    "Thinkbot",
+    "TikTokSpider",
+    "Timpibot",
+    "VelenPublicWebCrawler",
+    "WARDBot",
+    "Webzio-Extended",
+    "wpbot",
+    "YaK",
+    "YandexAdditional",
+    "YandexAdditionalBot",
+    "YouBot",
+  ],
+}));
+site.use(sitemap());
+
 site.add("index.html");
 site.add("static", "/");
 
