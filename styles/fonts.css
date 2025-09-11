@@ -8,6 +8,47 @@
    ========================================================================== */
 
 @font-face {
+  font-family: "Self Modern";
+  src: url("/fonts/self-modern_regular_trial.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Self Modern";
+  src: url("/fonts/self-modern_book_trial.otf") format("opentype");
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Self Modern";
+  src: url("/fonts/self-modern_italic_trial.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Self Modern";
+  src: url("/fonts/self-modern_semibold_trial.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Self Modern";
+  src: url("/fonts/self-modern_bold_trial.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
   font-family: "Suisse Intl";
   src: url("/fonts/SuisseIntl-Hairline.woff2") format("woff2");
   font-weight: 100;
