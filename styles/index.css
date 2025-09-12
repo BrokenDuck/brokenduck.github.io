@@ -2,7 +2,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    
+
     --name-color: whitesmoke;
     --bg-color: #edbec7;
     --text-color: #0B1B36;
@@ -14,7 +14,6 @@ header {
     width: 100vw;
     overflow: hidden;
 
-    /* Title Positioning */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,16 +22,26 @@ header {
     /* Text Style */
     h1 {
         position: absolute;
-        font: bold 5em "hanken";
+        font: 600 5rem "Self Modern";
         color: var(--name-color);
         word-spacing: 0.1em;
     }
 
-    /* Background Image */
-    picture, img {
-        width: auto;
+    picture {
+        width: 100%;
         height: 100%;
-        opacity: 80;
+        object-fit: cover;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-aspect-ratio: 1) {
+        h1 {
+            font: 600 3rem "Self Modern";
+        }
     }
 }
 
@@ -60,7 +69,7 @@ main {
         ".     .     .     image image image" 1fr
         ".     .     item5 item6 item6 item6" 1fr
         ".     .     item7 item8 item8 item8" 1fr
-        /1fr   1fr   1fr   1fr   1fr   1fr;
+        /1fr 1.5fr 1fr 1fr 1.5fr 1fr;
     justify-items: stretch;
 
     :nth-child(2) {
@@ -99,7 +108,6 @@ main {
         grid-area: image;
         align-self: center;
         justify-self: center;
-        height: 80%;
         max-height: 80%;
         max-width: 80%;
         border-radius: 0.4rem;
@@ -109,10 +117,12 @@ main {
         text-align: center;
     }
 
-    li, p {
+    li,
+    p {
         margin: 0;
         padding: 0;
-        font: 1rem "Suisse Intl";
+        font-family: "Suisse Intl";
+        font-size: clamp(0.4rem, 0.461rem + 0.615vw, 1rem);
         color: var(--text-color);
     }
 
@@ -122,31 +132,44 @@ main {
         margin: 0;
     }
 
-    /* Link with hover effect  */
     a {
         color: inherit;
         text-decoration: none;
         transition: color 0.3s ease;
-
+        
     }
+
     a:hover {
         color: var(--hover-color);
     }
 
+    @media not (hover: hover) {
+        a {
+            text-decoration: underline;
+        }
+    }
 
-    @media (max-aspect-ratio: 3/4) {
+
+    @media (max-aspect-ratio: 1) {
         grid-template:
-            "item1 item2" 1fr
-            "item3 item4" 1fr
-            "image image" 1fr
-            "item5 item6" 1fr 
-            "item7 item8" 1fr
-            /1fr   4fr;
+            "image" 3fr
+            "item1" 1fr
+            "item2" 3fr
+            "item3" 1fr
+            "item4" 3fr
+            "item5" 1fr
+            "item6" 3fr
+            "item7" 1fr
+            "item8" 3fr;
 
-        
+        p {
+            place-self: end left;
+            font-weight: 600;
+        }
 
-        p, li {
-            font-size: 0.6em;
+        p,
+        li {
+            font-size: x-small;
         }
     }
 }
@@ -169,69 +192,43 @@ main {
     }
 
     :nth-child(1) {
-        bottom: -15em;
-        left: -15em;
-        width: 30em;
-        height: 30em;
+        bottom: max(-20vh, -20vw);
+        left: max(-20vh, -20vw);
+        width: min(50vh, 50vw);
+        height: min(50vh, 50vw);
         background-color: #E6FCB4;
         mix-blend-mode: difference;
     }
 
     :nth-child(2) {
-        left: 10em;
-        bottom: -3em;
-        width: 16em;
-        height: 16em;
+        left: min(17vh, 17vw);
+        bottom: max(-5vh, -5vw);
+        width: min(30vh, 30vw);
+        height: min(30vh, 30vw);
         background-color: #FF6F61;
         mix-blend-mode: difference;
     }
 
     :nth-child(3) {
-        left: 15em;
-        bottom: 8em;
-        width: 14em;
-        height: 14em;
+        left: max(15vh, 15vw);
+        bottom: min(10vh, 10vw);
+        width: min(25vh, 25vw);
+        height: min(25vh, 25vw);
         background-color: #CAB4FC;
-        mix-blend-mode: darken;
+        mix-blend-mode: difference;
     }
 
     :nth-child(4) {
-        left: 24em;
-        bottom: 18em;
-        width: 10em;
-        height: 10em;
+        left: max(23vh, 23vw);
+        bottom: min(23vh, 10vw);
+        width: min(18vh, 18vw);
+        height: min(18vh, 18vw);
         background-color: #a2afe5;
         mix-blend-mode: difference;
     }
 
-    @media (max-width: 768px) {
+    @media (max-aspect-ratio: 1) {
         display: none;
-    }
-}
-
-
-
-.me {
-    position: absolute;
-    top: 4em;
-    right: 9em;
-    width: 20em;
-    height: 20em;
-    border-radius: 5%;
-
-}
-
-@media (max-width: 758px) {
-    .me {
-        height: 100%;
-        width: auto;
-        position: relative;
-        top: 0;
-        left: 0;
-        justify-self: center;
-        grid-area: img;
-        padding-bottom: 10%;
-        box-sizing: border-box;
     }
 }
 
@@ -246,30 +243,27 @@ aside {
 
 
         /* Text Style */
-        font: 0.6rem "Suisse Intl";
+        font: x-small "Suisse Intl";
         color: #0B1B36;
 
         a {
             color: inherit;
-            text-decoration: none; /* optional: removes underline */
-            transition: color 0.3s ease; /* smooth color change */
+            text-decoration: none;
+            /* optional: removes underline */
+            transition: color 0.3s ease;
+            /* smooth color change */
 
         }
 
         a:hover {
-            color: #fafafa; /* white on hover */
+            color: #fafafa;
+            /* white on hover */
         }
     }
 
-    @media (max-width: 768px) {
+    @media (max-aspect-ratio: 1) {
         p {
-            font-size: 0.6rem;
+            font-size: xx-small;
         }
     }
-}
-
-.logo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
 }
