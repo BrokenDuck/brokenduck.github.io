@@ -8,8 +8,61 @@ import transformImages from "lume/plugins/transform_images.ts";
 import favicon from "lume/plugins/favicon.ts";
 import robots from "lume/plugins/robots.ts";
 import sitemap from "lume/plugins/sitemap.ts";
+import { markdownIt } from "lume/deps/markdown_it.ts";
 
-const site = lume();
+// Markdown-it plugins
+// deno-lint-ignore no-import-prefix no-unversioned-import
+import anchor from "npm:markdown-it-anchor";
+// deno-lint-ignore no-import-prefix no-unversioned-import
+import footnote from "npm:markdown-it-footnote";
+// deno-lint-ignore no-import-prefix no-unversioned-import
+import { full as emoji } from "npm:markdown-it-emoji";
+
+// Type imports
+import type Token from "./types/token.d.mts";
+import type { Options } from "./types/options.d.mts";
+import type Renderer from "./types/renderer.d.mts";
+
+const site = lume({ location: new URL("https://jonat.me") });
+
+site.hooks.addMarkdownItPlugin(anchor, { level: 2 });
+site.hooks.addMarkdownItPlugin(footnote);
+site.hooks.addMarkdownItPlugin(emoji);
+
+// Change markdown image rendering for the blog
+const md = markdownIt().use(emoji);
+site.hooks.addMarkdownItRule(
+  "image",
+  (
+    tokens: Token[],
+    idx: number,
+    options: Options,
+    env: unknown,
+    _self: Renderer,
+  ) => {
+    const token = tokens[idx];
+
+    // Get attributes
+    const src = token.attrGet("src");
+    const alt = token.content;
+    const title = token.attrGet("title");
+
+    const caption = alt ? md.renderInline(alt, options, env) : "";
+
+    return `
+      <figure class="article-img">
+        <img src="${src}" alt="${alt}" ${
+      title ? `title="${title}"` : ""
+    } loading="lazy">
+        ${
+      caption
+        ? `<div class="figure-controls"><figcaption>${caption}</figcaption></div>`
+        : ""
+    }
+      </figure>
+  `;
+  },
+);
 
 // Styling
 

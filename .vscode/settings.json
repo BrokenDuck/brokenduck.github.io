@@ -1,3 +1,7 @@
 {
-    "editor.defaultFormatter": "denoland.vscode-deno"
+  "editor.defaultFormatter": "denoland.vscode-deno",
+  "markdown.validate.enabled": true,
+  "markdown.validate.ignoredLinks": [
+    "/images/swissincss.png"
+  ]
 }

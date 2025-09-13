@@ -56,19 +56,19 @@ main {
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 1rem 0.5rem 1rem 0.5rem;
+  padding: 1rem;
   box-sizing: border-box;
   background-color: var(--bg-color);
 
   /* Grid management */
   display: grid;
   grid-template:
-    "item1 item2 item2 image image nav  " 1fr
-    "item3 item4 item4 image image nav  " 1fr
-    ".     .     .     image image nav  " 1fr
-    ".     .     item5 item6 item6 item6" 1fr
-    ".     .     item7 item8 item8 item8" 1fr
-    / 1fr 1.5fr 1fr 1fr 1.5fr 1fr;
+    "item1 item2 item2 image image image nav  " 1fr
+    "item3 item4 item4 image image image nav  " 1fr
+    ".     .     .     image image image nav  " 1fr
+    ".     .     item5 item6 item6 item6 item6" 1fr
+    ".     .     item7 item8 item8 item8 item8" 1fr
+    / 1fr 1fr 1fr 1fr 1fr 0.5fr;
   justify-items: stretch;
 
   :nth-child(2) {
@@ -114,10 +114,15 @@ main {
 
   nav {
     grid-area: nav;
+    place-self: start right;
 
     ul {
       display: flex;
       flex-direction: column;
+
+      li {
+        text-align: end;
+      }
     }
   }
 
@@ -166,11 +171,29 @@ main {
       "item5" 1fr
       "item6" 3fr
       "item7" 1fr
-      "item8" 3fr;
+      "item8" 3fr
+      "nav" 0.5fr;
 
     p {
       place-self: end left;
       font-weight: 600;
+    }
+
+    nav {
+      grid-area: nav;
+      place-self: start right;
+
+      width: 100%;
+      height: 100%;
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        li {
+          text-align: end;
+        }
+      }
     }
   }
 }
@@ -258,6 +281,7 @@ aside {
   }
 
   @media (max-aspect-ratio: 1) {
+    top: 0;
     p {
       font-size: xx-small;
     }
