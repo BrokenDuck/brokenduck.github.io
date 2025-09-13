@@ -23,5 +23,10 @@
     "plugins": [
       "https://deno.land/x/lume@v3.0.8/lint.ts"
     ]
+  },
+  "fmt": {
+    "exclude": [
+      "static"
+    ]
   }
 }
