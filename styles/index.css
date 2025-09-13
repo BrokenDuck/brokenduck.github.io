@@ -1,269 +1,265 @@
 html,
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    --name-color: whitesmoke;
-    --bg-color: #edbec7;
-    --text-color: #0B1B36;
-    --hover-color: #fafafa;
+  --name-color: whitesmoke;
+  --bg-color: #e2c1d5;
+  --text-color: #0b1b36;
+  --hover-color: #fafafa;
 }
 
 header {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
-    /* Text Style */
+  /* Text Style */
+  h1 {
+    position: absolute;
+    font: 600 5rem "Self Modern";
+    color: var(--name-color);
+    word-spacing: 0.1em;
+  }
+
+  picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-aspect-ratio: 1) {
     h1 {
-        position: absolute;
-        font: 600 5rem "Self Modern";
-        color: var(--name-color);
-        word-spacing: 0.1em;
+      font: 600 3rem "Self Modern";
     }
-
-    picture {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    img {
-        width: 100%;
-        height: 100%;
-    }
-
-    @media (max-aspect-ratio: 1) {
-        h1 {
-            font: 600 3rem "Self Modern";
-        }
-    }
+  }
 }
 
-
 #main {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: scroll;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
 }
 
 main {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 1rem 0.5rem 1rem 0.5rem;
-    box-sizing: border-box;
-    background-color: var(--bg-color);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
 
-    /* Grid management */
-    display: grid;
-    grid-template:
-        "item1 item2 item2 image image image" 1fr
-        "item3 item4 item4 image image image" 1fr
-        ".     .     .     image image image" 1fr
-        ".     .     item5 item6 item6 item6" 1fr
-        ".     .     item7 item8 item8 item8" 1fr
-        /1fr 1.5fr 1fr 1fr 1.5fr 1fr;
-    justify-items: stretch;
+  /* Grid management */
+  display: grid;
+  grid-template:
+    "item1 item2 item2 image image nav  " 1fr
+    "item3 item4 item4 image image nav  " 1fr
+    ".     .     .     image image nav  " 1fr
+    ".     .     item5 item6 item6 item6" 1fr
+    ".     .     item7 item8 item8 item8" 1fr
+    / 1fr 1.5fr 1fr 1fr 1.5fr 1fr;
+  justify-items: stretch;
 
-    :nth-child(2) {
-        grid-area: item1;
-    }
+  :nth-child(2) {
+    grid-area: item1;
+  }
 
-    :nth-child(3) {
-        grid-area: item2;
-    }
+  :nth-child(3) {
+    grid-area: item2;
+  }
 
-    :nth-child(4) {
-        grid-area: item3;
-    }
+  :nth-child(4) {
+    grid-area: item3;
+  }
 
-    :nth-child(5) {
-        grid-area: item4;
-    }
+  :nth-child(5) {
+    grid-area: item4;
+  }
 
-    :nth-child(6) {
-        grid-area: item5;
-    }
+  :nth-child(6) {
+    grid-area: item5;
+  }
 
-    :nth-child(7) {
-        grid-area: item6;
-    }
+  :nth-child(7) {
+    grid-area: item6;
+  }
 
-    :nth-child(8) {
-        grid-area: item7;
-    }
+  :nth-child(8) {
+    grid-area: item7;
+  }
 
-    :nth-child(9) {
-        grid-area: item8;
-    }
+  :nth-child(9) {
+    grid-area: item8;
+  }
 
-    #me {
-        grid-area: image;
-        align-self: center;
-        justify-self: center;
-        max-height: 70%;
-        max-width: 70%;
-        border-radius: 0.4rem;
-    }
+  #me {
+    grid-area: image;
+    align-self: center;
+    justify-self: center;
+    max-height: 70%;
+    max-width: 70%;
+    border-radius: 0.4rem;
+  }
 
-    .heading {
-        text-align: center;
-    }
-
-    li,
-    p {
-        margin: 0;
-        padding: 0;
-        font-family: "Suisse Intl";
-        font-size: clamp(0.4rem, 0.461rem + 0.615vw, 1rem);
-        color: var(--text-color);
-    }
+  nav {
+    grid-area: nav;
 
     ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
+      display: flex;
+      flex-direction: column;
     }
+  }
 
+  p {
+    place-self: start center;
+  }
+
+  li,
+  p {
+    margin: 0;
+    padding: 0;
+    font-family: "Suisse Intl";
+    font-size: clamp(0.8rem, 0.733rem + 0.296vw, 1rem);
+    color: var(--text-color);
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--hover-color);
+  }
+
+  @media not (hover: hover) {
     a {
-        color: inherit;
-        text-decoration: none;
-        transition: color 0.3s ease;
-        
+      text-decoration: underline;
     }
+  }
 
-    a:hover {
-        color: var(--hover-color);
+  @media (max-aspect-ratio: 1) {
+    grid-template:
+      "image" 3fr
+      "item1" 1fr
+      "item2" 3fr
+      "item3" 1fr
+      "item4" 3fr
+      "item5" 1fr
+      "item6" 3fr
+      "item7" 1fr
+      "item8" 3fr;
+
+    p {
+      place-self: end left;
+      font-weight: 600;
     }
-
-    @media not (hover: hover) {
-        a {
-            text-decoration: underline;
-        }
-    }
-
-
-    @media (max-aspect-ratio: 1) {
-        grid-template:
-            "image" 3fr
-            "item1" 1fr
-            "item2" 3fr
-            "item3" 1fr
-            "item4" 3fr
-            "item5" 1fr
-            "item6" 3fr
-            "item7" 1fr
-            "item8" 3fr;
-
-        p {
-            place-self: end left;
-            font-weight: 600;
-        }
-
-        p,
-        li {
-            font-size: x-small;
-        }
-    }
+  }
 }
 
-
-
-
 #circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+
+  div {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
+    border-radius: 50%;
+  }
 
-    div {
-        position: absolute;
-        border-radius: 50%;
-    }
+  :nth-child(1) {
+    bottom: max(-20vh, -20vw);
+    left: max(-20vh, -20vw);
+    width: min(50vh, 50vw);
+    height: min(50vh, 50vw);
+    background-color: #e6fcb4;
+    mix-blend-mode: difference;
+  }
 
-    :nth-child(1) {
-        bottom: max(-20vh, -20vw);
-        left: max(-20vh, -20vw);
-        width: min(50vh, 50vw);
-        height: min(50vh, 50vw);
-        background-color: #E6FCB4;
-        mix-blend-mode: difference;
-    }
+  :nth-child(2) {
+    left: min(17vh, 17vw);
+    bottom: max(-5vh, -5vw);
+    width: min(30vh, 30vw);
+    height: min(30vh, 30vw);
+    background-color: #ff6f61;
+    mix-blend-mode: difference;
+  }
 
-    :nth-child(2) {
-        left: min(17vh, 17vw);
-        bottom: max(-5vh, -5vw);
-        width: min(30vh, 30vw);
-        height: min(30vh, 30vw);
-        background-color: #FF6F61;
-        mix-blend-mode: difference;
-    }
+  :nth-child(3) {
+    left: max(15vh, 15vw);
+    bottom: min(10vh, 10vw);
+    width: min(25vh, 25vw);
+    height: min(25vh, 25vw);
+    background-color: #cab4fc;
+    mix-blend-mode: difference;
+  }
 
-    :nth-child(3) {
-        left: max(15vh, 15vw);
-        bottom: min(10vh, 10vw);
-        width: min(25vh, 25vw);
-        height: min(25vh, 25vw);
-        background-color: #CAB4FC;
-        mix-blend-mode: difference;
-    }
+  :nth-child(4) {
+    left: max(23vh, 23vw);
+    bottom: min(23vh, 10vw);
+    width: min(18vh, 18vw);
+    height: min(18vh, 18vw);
+    background-color: #a2afe5;
+    mix-blend-mode: difference;
+  }
 
-    :nth-child(4) {
-        left: max(23vh, 23vw);
-        bottom: min(23vh, 10vw);
-        width: min(18vh, 18vw);
-        height: min(18vh, 18vw);
-        background-color: #a2afe5;
-        mix-blend-mode: difference;
-    }
-
-    @media (max-aspect-ratio: 1) {
-        display: none;
-    }
+  @media (max-aspect-ratio: 1) {
+    display: none;
+  }
 }
 
 aside {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 
+  p {
+    padding: 0;
+    margin: 0;
+
+    /* Text Style */
+    font: x-small "Suisse Intl";
+    color: #0b1b36;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      /* optional: removes underline */
+      transition: color 0.3s ease;
+      /* smooth color change */
+    }
+
+    a:hover {
+      color: #fafafa;
+      /* white on hover */
+    }
+  }
+
+  @media (max-aspect-ratio: 1) {
     p {
-        padding: 0;
-        margin: 0;
-
-
-        /* Text Style */
-        font: x-small "Suisse Intl";
-        color: #0B1B36;
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            /* optional: removes underline */
-            transition: color 0.3s ease;
-            /* smooth color change */
-
-        }
-
-        a:hover {
-            color: #fafafa;
-            /* white on hover */
-        }
+      font-size: xx-small;
     }
-
-    @media (max-aspect-ratio: 1) {
-        p {
-            font-size: xx-small;
-        }
-    }
+  }
 }
