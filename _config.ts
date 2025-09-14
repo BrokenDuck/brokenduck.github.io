@@ -9,6 +9,7 @@ import favicon from "lume/plugins/favicon.ts";
 import robots from "lume/plugins/robots.ts";
 import sitemap from "lume/plugins/sitemap.ts";
 import date from "lume/plugins/date.ts";
+import svgo from "lume/plugins/svgo.ts";
 import { markdownIt } from "lume/deps/markdown_it.ts";
 
 // Markdown-it plugins
@@ -84,6 +85,7 @@ site.use(purgecss());
 
 site.use(picture());
 site.use(transformImages());
+site.use(svgo());
 
 /*  More optimization plugins */
 
