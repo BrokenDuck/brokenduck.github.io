@@ -17,7 +17,7 @@ Lume also comes with native support for [Vento](https://vento.js.org/), a templa
 
 The idea for the homepage started with me going down the rabbit hole about the [International Typographic Style](https://en.wikipedia.org/wiki/International_Typographic_Style) (sometimes also called [Swiss International Style](https://www.aboutswitzerland.eda.admin.ch/en/swiss-style-forever-the-story-of-a-graphic-design-tradition)). Taking its roots in the late Bauhaus movement and applying them to graphical design, Swiss style aims for a constructive and minimalist approach to graphical design, culminating in the design of the [Helvetica font](https://en.wikipedia.org/wiki/Helvetica)[^2] and the book [Grid Systems in Graphic Design](https://www.niggli.ch/produkt/grid-systems-in-graphic-design/).
 
-As someone with little experience in design, the constructive approach was a godsend, preventing me from eternally trying out "one more thing". Having a set of clear rules drastically reduces the space of possibilities while leaving ample room for discovery and experimentation. I can only recommend starting with something you find inpiring, applying it to your usecase and going from there. 
+As someone with little experience in design, the constructive approach was a godsend, preventing me from eternally trying out "one more thing". Having a set of clear rules drastically reduces the space of possibilities while leaving ample room for discovery and experimentation. I can only recommend starting with something you find inpiring, applying it to your usecase and going from there.
 
 Some common elements of International Typographic Style are visible in the homepage:
 
@@ -37,6 +37,7 @@ Following the [W3C sustainability guidelines](https://w3c.github.io/sustainablew
 - *Static website*: the website is composed of pure HTML and CSS files, build and served on the server. All the file are minimized as much as possible.
 - *Default typeface*: a default typeface is used, available in every browser. Removes the need to load an external font.
 - *Responsive images*: On mobile, a much smaller image is loaded to prevent unnecessary network access.
+- *robots.txt*: Although it is not certain [AI scrapers actually respect `robots.txt` files](https://blog.cloudflare.com/perplexity-is-using-stealth-undeclared-crawlers-to-evade-website-no-crawl-directives/), I have blocked every major AI scrapper bot in my `robots.txt` file. AI training has a massive [negative impact on the environment](https://mit-genai.pubpub.org/pub/8ulgrckc/release/2).
 
 I would also like to host the website on a sustainable hosting platform, but sustainable hosting prices are off the charts, and far too expensive for a static website like mine.
 
