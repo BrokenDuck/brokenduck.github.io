@@ -1,7 +1,7 @@
 import lume from "lume/mod.ts";
 import lightningCSS from "lume/plugins/lightningcss.ts";
-import googleFonts from "lume/plugins/google_fonts.ts";
 import minifyHTML from "lume/plugins/minify_html.ts";
+import inline from "lume/plugins/inline.ts";
 import purgecss from "lume/plugins/purgecss.ts";
 import picture from "lume/plugins/picture.ts";
 import transformImages from "lume/plugins/transform_images.ts";
@@ -24,6 +24,8 @@ import type { Options } from "./types/options.d.mts";
 import type Renderer from "./types/renderer.d.mts";
 
 const site = lume({ location: new URL("https://jonat.me") });
+
+/* Markdown-it config */
 
 site.hooks.addMarkdownItPlugin(anchor, { level: 2 });
 site.hooks.addMarkdownItPlugin(footnote);
@@ -64,31 +66,26 @@ site.hooks.addMarkdownItRule(
   },
 );
 
-// Styling
+/* Styling config */
 
 site.add("styles");
-site.use(
-  googleFonts({
-    fonts: {
-      hanken:
-        "https://fonts.google.com/share?selection.family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900",
-    },
-    cssFile: "styles/index.css",
-  }),
-);
 
-// File optimization
+/* Optimization plugins */
 
 site.use(minifyHTML());
 site.use(lightningCSS());
 site.use(purgecss());
 
-// Image Stuff
+/* Image config */
 
 site.use(picture());
 site.use(transformImages());
 
-// Add web specific files
+/*  More optimization plugins */
+
+site.use(inline());
+
+/* Website config */
 
 site.use(favicon());
 site.use(robots({
@@ -192,6 +189,8 @@ site.use(robots({
   ],
 }));
 site.use(sitemap());
+
+/* Add other pages */
 
 site.add("index.html");
 site.add("static", "/");
