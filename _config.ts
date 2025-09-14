@@ -8,6 +8,7 @@ import transformImages from "lume/plugins/transform_images.ts";
 import favicon from "lume/plugins/favicon.ts";
 import robots from "lume/plugins/robots.ts";
 import sitemap from "lume/plugins/sitemap.ts";
+import date from "lume/plugins/date.ts";
 import { markdownIt } from "lume/deps/markdown_it.ts";
 
 // Markdown-it plugins
@@ -24,6 +25,8 @@ import type { Options } from "./types/options.d.mts";
 import type Renderer from "./types/renderer.d.mts";
 
 const site = lume({ location: new URL("https://jonat.me") });
+
+site.ignore("README.md");
 
 /* Markdown-it config */
 
@@ -68,6 +71,7 @@ site.hooks.addMarkdownItRule(
 
 /* Styling config */
 
+site.use(date());
 site.add("styles");
 
 /* Optimization plugins */

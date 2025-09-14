@@ -1,13 +1,11 @@
 ---
-title: My second page
+title: Building this website
+summary: If you got here, you were probably interested in the design behind the website...
+date: 2024-09-14
+author: J. Maillefaud
 ---
 
 ![[Swiss in CSS](https://swissincss.com/) recreates some of the most famous Swiss Style posters.](/images/swissincss.png)
-
-If you got here, you were probably interested in the design behind the website...
-
-As you probably noticed it composed of two different parts: *the homepage* and *the
-rest*.
 
 ## Static site generation
 
